@@ -20,5 +20,5 @@ Download the necessary dependency files directly from Git hub. I've downloaded t
 I've added the version of Electrum these files work for.
 I can not gaurantee that as newer versions of Electrum are released that the same dependency files will work.
 
-I have also included other useful files that I usually add to my Pi Zero systmes.
+I have also included other useful files that I usually add to my Pi Zero systems.
 Ian coleman's BIP 39 tool (you can just get this directly from his GitHub page as an alternative.
