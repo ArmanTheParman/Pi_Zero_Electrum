@@ -24,6 +24,7 @@ I have also included other useful files that I usually add to my Pi Zero systems
 Ian coleman's BIP 39 tool (you can just get this directly from his GitHub page as an alternative.
 
 IMPORTANT ADDITION:
-With new updates to the Raspian OS, The Pi Zero peforms poorly (Raspberry PI is no longer supporting this device).
-You should download the latest "Buster" version of the operating system, and also, you can't use the latest version
-of Electrum either, as it requires a later Python version. Find the older 2021 versions of Electrum to use.
+With new updates to the Raspian OS, The Pi Zero performs poorly (Raspberry PI is no longer supporting this device).
+You should download the latest "Buster" version (not any later than Buster) of the operating system, and also, 
+you can't use the latest version of Electrum either, as it requires a later Python version. 
+Find the older 2021 versions of Electrum to use.
