@@ -39,6 +39,9 @@ sudo chmod +x ~/Desktop/Electrum/run_electrum
 
 sudo systemctl disable bluetooth.service
 
+sudo systemctl disable hciuart
 
+sudo rfkill block bluetooth
 
+sudo rfkill block wifi
 
