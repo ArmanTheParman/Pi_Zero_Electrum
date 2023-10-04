@@ -15,7 +15,7 @@ echo "hashing"
 shasum -a 256 --ignore-missing --verify *.sig
 
 echo "fetching public key"
-gpg --import Rasberry_Pi.pubkey
+gpg --import Raspberry_Pi.pubkey
 
 echo "verifying signature"
 gpg --verify *.sig
