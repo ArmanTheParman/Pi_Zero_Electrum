@@ -1,38 +1,36 @@
 function get_piOS {
+
+# Need version from mid 2021 ; Version in late 2021 and beyond bloated the browser and it doesn't work on Pi Zeros.
+
+#Hash of desired OS image published here... 
+
+#        -       https://web.archive.org/web/20211028120855/https://www.raspberrypi.com/software/operating-systems/
+#        -       https://armantheparman.com/how-to-set-up-a-raspberry-pi-zero-air-gapped-with-electrum-desktop-wallet/
+#        -       https://web.archive.org/web/20211028120855/https://www.raspberrypi.com/software/operating-systems/ 
+#        -       https://ytyaru.hatenablog.com/entry/2023/02/25/000000
+#        -       https://github.com/treehouses/builder/blob/master/builder
+#        -       http://debian.rutgers.edu/raspios_images/raspios/raspios_armhf-2021-05-28/
+
+hashvalue=b6c04b34d231f522278fc822d913fed3828d0849e1e7d786db72f52c28036c62
+
+# Get the image...
+mkdir -p ~/parman_programs/ParmaZero
+cd ~/parman_programs/ParmaZero
 echo "getting zip file"
-#curl -LO https://downloads.raspberrypi.org/raspios_oldstable_armhf/images/raspios_oldstable_armhf-2022-04-07/2022-04-04-raspios-buster-armhf.img.xz
-curl -LO https://downloads.raspberrypi.org/raspios_oldstable_armhf/images/raspios_oldstable_armhf-2021-12-02/2021-12-02-raspios-buster-armhf.zip && export zip_download=success
+curl -LO http://debian.rutgers.edu/raspios_images/raspios/raspios_armhf-2021-05-28/2021-05-07-raspios-buster-armhf.zip 
 
-echo "getting sha256 file"
-#curl -LO https://downloads.raspberrypi.org/raspios_oldstable_armhf/images/raspios_oldstable_armhf-2022-04-07/2022-04-04-raspios-buster-armhf.img.xz.sha256
-curl -LO https://downloads.raspberrypi.org/raspios_oldstable_armhf/images/raspios_oldstable_armhf-2021-12-02/2021-12-02-raspios-buster-armhf.zip.sha256 && sha256_download=success
+# Hash the zip
+echo "
+hashing..."
 
-echo "getting signature of hash file"
-#curl -LO https://downloads.raspberrypi.org/raspios_oldstable_armhf/images/raspios_oldstable_armhf-2022-04-07/2022-04-04-raspios-buster-armhf.img.xz.sig
-curl -LO https://downloads.raspberrypi.org/raspios_oldstable_armhf/images/raspios_oldstable_armhf-2021-12-02/2021-12-02-raspios-buster-armhf.zip.sig && signature_download=success
-
-
-echo "hashing..."
-
-if shasum -a 256 --ignore-missing --check *256 2>&1 | grep OK ; then export hashes=match ; else export hashes="don't match" ; fi 
-
-echo "fetching public key"
-gpg --import Raspberry_Pi.pubkey
-
-echo "verifying signature"
-gpg --verify *.sig && export verification=success
+if shasum -a 256 raspios*zip | grep -q $hasvalue ; then
+echo "
+hash successful
+" 
+fi
 
 echo "unzipping"
-xz -vkd $zip_path && unzip=success
-
-
-echo "
-
-zip download : $zip_download
-sha256_download : $sha256_download
-signature_download: $signature_download
-hashes: $hashes
-verification: $verification
-unzip: $unzip
+echo "unzipping, please wait... "
+unzip 2021*zip 
 
 }
