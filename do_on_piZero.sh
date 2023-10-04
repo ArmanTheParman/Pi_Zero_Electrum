@@ -37,7 +37,7 @@ EOF
 
 sudo chmod +x ~/Desktop/Electrum/run_electrum
 
-
+sudo systemctl disable bluetooth.service
 
 
 
