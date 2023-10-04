@@ -16,7 +16,7 @@ Hit <enter> to continue
 "
 read
 
-cd ~Desktop
+cd ~/Desktop
 tar -xvf *.gz
 rm -rf *.gz
 
@@ -35,7 +35,7 @@ cd ~/Desktop/Electrum
 ./run_electrum
 EOF
 
-sudo chmod +x ~/Desktop/run_electrum
+sudo chmod +x ~/Desktop/Electrum/run_electrum
 
 
 
