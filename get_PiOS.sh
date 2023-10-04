@@ -14,7 +14,7 @@ curl -LO https://downloads.raspberrypi.org/raspios_oldstable_armhf/images/raspio
 
 echo "hashing..."
 
-if shasum -a 256 --ignore-missing --verify *.sig 2>&1 | grep Good ; then export hashes=match ; else export hashes="don't match" ; fi 
+if shasum -a 256 --ignore-missing --verify *.256 2>&1 | grep Good ; then export hashes=match ; else export hashes="don't match" ; fi 
 
 echo "fetching public key"
 gpg --import Raspberry_Pi.pubkey
