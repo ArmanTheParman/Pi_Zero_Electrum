@@ -1,5 +1,4 @@
-#!/bin/bash
-
+function get_piOS {
 echo "getting zip file"
 curl -LO https://downloads.raspberrypi.org/raspios_oldstable_armhf/images/raspios_oldstable_armhf-2022-04-07/2022-04-04-raspios-buster-armhf.img.xz
 
@@ -18,3 +17,7 @@ gpg --import Raspberry_Pi.pubkey
 
 echo "verifying signature"
 gpg --verify *.sig
+
+echo "unzipping"
+xz -vkd $zip_path
+}
