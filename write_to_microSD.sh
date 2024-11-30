@@ -1,14 +1,13 @@
 function write_to_pi_zero {
-echo "Export the full path of the image you want to write to the variable, 'image'"
-
-echo "Type the full path of the device path but without the partion values:
-"
+echo -e "\nType the full path of the image you want to flash.\n"
+read image
+echo -e "Type the full path of the device path to write to:\n"
 
 read dev
 
 sudo umount -F $dev
 
-dcfldd if=$image of=$dev ds=4000000
+sudo dd if=$image of=$dev bs=4000000 && sync && echo -e "\nSUCCESS\n"
 
 }
 
