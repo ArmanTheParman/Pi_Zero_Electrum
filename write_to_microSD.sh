@@ -5,7 +5,7 @@ echo -e "Type the full path of the device path to write to:\n"
 
 read dev
 
-sudo umount -F $dev
+sudo umount -F $dev || diskutil unmountdisk $dev
 
 sudo dd if=$image of=$dev bs=4000000 && sync && echo -e "\nSUCCESS\n"
 
